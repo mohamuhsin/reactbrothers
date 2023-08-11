@@ -3,15 +3,17 @@ import AddUser from "./components/AddUser";
 import UserList from "./components/UsersList";
 
 function App() {
-  const [userList, setUserList] = useState[""];
+  const [usersList, setUsersList] = useState[""];
 
-  const AddUserHandler = () => {
-    setUserList();
+  const AddUserHandler = (uName, uAge) => {
+    setUsersList((prevUserList) => {
+      return [...prevUserList, { name: uName, age: uAge }];
+    });
   };
   return (
     <div>
-      <AddUser />
-      <UserList users={userList} />
+      <AddUser onAddUser={AddUserHandler} />
+      <UserList users={usersList} />
     </div>
   );
 }
