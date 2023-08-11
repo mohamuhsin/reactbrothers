@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRefs } from "react";
 import Card from "./Card";
 import classes from "./AddUser.module.css";
 import Button from "./Button";
 import ErrorModal from "./ErrorModal";
 
 const AddUser = (props) => {
+  const nameInputRefs = useRefs();
+  const ageInputRefs = useRefs();
+
   const [enteredName, setEnteredName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const [error, setError] = useState();
