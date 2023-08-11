@@ -5,8 +5,8 @@ import Button from "./Button";
 import ErrorModal from "./ErrorModal";
 
 const AddUser = (props) => {
-  const nameInputRefs = useRefs();
-  const ageInputRefs = useRefs();
+  const nameInputRef = useRefs();
+  const ageInputRef = useRefs();
 
   const [enteredName, setEnteredName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
@@ -62,6 +62,7 @@ const AddUser = (props) => {
             type="text"
             value={enteredName}
             onChange={nameChangeHandler}
+            ref={nameInputRef}
           />
           <label htmlFor="age">Age (Years)</label>
           <input
@@ -69,6 +70,7 @@ const AddUser = (props) => {
             type="number"
             value={enteredAge}
             onChange={ageChangeHandler}
+            ref={ageInputRef}
           />
           <Button type="submit">Add User</Button>
         </form>
