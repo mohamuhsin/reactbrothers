@@ -4,24 +4,25 @@ import classes from "./AddUser.module.css";
 import Button from "./Button";
 
 const AddUser = (props) => {
-  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredName, setEnteredName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+
+    if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       return;
     }
     if (+enteredAge < 1) {
       return;
     }
-    props.onAddUser(enteredUsername, enteredAge);
-    setEnteredUsername("");
+    props.onAddUser(enteredName, enteredAge);
+    setEnteredName("");
     setEnteredAge("");
   };
 
-  const usernameChangeHandler = (event) => {
-    setEnteredUsername(event.target.value);
+  const nameChangeHandler = (event) => {
+    setEnteredName(event.target.value);
   };
   const ageChangeHandler = (event) => {
     setEnteredAge(event.target.value);
@@ -34,8 +35,8 @@ const AddUser = (props) => {
         <input
           id="username"
           type="text"
-          value={enteredUsername}
-          onChange={usernameChangeHandler}
+          value={enteredName}
+          onChange={nameChangeHandler}
         />
         <label htmlFor="age">Age (Years)</label>
         <input

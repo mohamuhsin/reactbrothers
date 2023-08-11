@@ -5,7 +5,7 @@ import Card from "./Card";
 const UserList = (props) => {
   return (
     <Card className={classes.users}>
-      <ul>
+      <ul key={user.id}>
         {props.users.map((user) => (
           <li>
             {user.name} ({user.age} years old)
