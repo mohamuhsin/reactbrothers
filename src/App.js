@@ -3,7 +3,7 @@ import AddUser from "./components/AddUser";
 import UserList from "./components/UsersList";
 
 function App() {
-  const [usersList, setUsersList] = useState[""];
+  const [usersList, setUsersList] = useState([]);
 
   const AddUserHandler = (uName, uAge) => {
     setUsersList((prevUserList) => {
